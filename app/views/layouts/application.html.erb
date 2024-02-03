@@ -1,19 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html lang="<%= @page.language_code %>">
   <head>
-    <title>Blog</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= render "alchemy/pages/meta_data" %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbo-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbo-track': 'reload' %>
   </head>
 
   <body>
-    <main class="container mx-auto mt-28 px-5 flex">
-      <%= yield %>
-    </main>
+    <%= yield %>
+    <%= render "alchemy/edit_mode" %>
   </body>
 </html>
